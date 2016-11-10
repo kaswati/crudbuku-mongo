@@ -1,0 +1,34 @@
+extends ../default
+
+block content
+  
+  include ../templates/nav
+
+  div(class=['ui', 'container', 'grid', 'stackable'])
+    div(class=['sixteen', 'wide', 'column'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing'])= 'Lista de Productos'
+
+     table(class=['ui', 'table', 'celled'] id='tbl-buku')
+        thead
+         tr
+          th= 'ID'
+          th= 'Nama Buku'
+          th= 'Pengarang'
+          th= 'Stok'
+          th= 'Aksi'
+        tbody
+         each bk in buku
+          tr
+            td(id='id')= bk._id
+            td= bk.nama
+            td= bk.pengarang
+            td= bk.stok
+            td
+              a(class=['ui button basic icon'] href='#' data-inverted='' data-tooltip='Hapus' data-position='top center' id='btn-hapus')
+                i(class=['trash icon'])
+              a(class=['ui button basic icon'] href='http://localhost:3000/ubahbuku/'+bk._id data-inverted='' data-tooltip='Ubah' data-position='top center')
+                i(class=['cut icon'])
+
+
+  script(src='javascripts/buku.js')

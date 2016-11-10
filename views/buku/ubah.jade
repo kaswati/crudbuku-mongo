@@ -1,0 +1,33 @@
+extends ../default
+
+block content
+  
+  include ../templates/nav
+
+  div(class=['ui', 'container', 'grid', 'stackable'])
+    div(class=['ten', 'wide', 'column'])
+
+      h2(class=['ui', 'header', 'blue', 'dividing'])= 'Ubah Buku'
+
+      div(class='form-registrasi')
+         form(class=['ui', 'form'] action='http://localhost:3000/editbuku' method='post')
+           div(class=['ui', 'field'])
+             label(for='nama')= 'Nama Buku'
+             input(type= 'text' name='nama' placeholder='Nama' value=resultArray.nama)
+           div(class=['ui', 'field'])
+              label(for='pengarang')= 'Pengarang'
+              input(type= 'text' name='pengarang' placeholder='Pengarang' value=resultArray.pengarang)
+           div(class=['ui', 'field'])
+              label(for='stok')= 'Stok'
+              input(type= 'text' name='stok' placeholder='Stok' value=resultArray.stok)
+              input(type= 'hidden' name='id'  value=resultArray._id)
+           button(class=['ui', 'button', 'basic', 'black'])= 'Edit Buku'   
+           div(class=['ui', 'message', 'error'])
+
+  script(src='/javascripts/validation.js')
+
+
+
+
+           
+        
